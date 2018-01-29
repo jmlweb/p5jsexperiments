@@ -1,0 +1,14 @@
+{
+  "name": "p5jsexperiments",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:jmlweb/p5jsexperiments.git",
+  "author": "José Manuel Lucas <josem.lucas@pccomponentes.com>",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+  }
+}
