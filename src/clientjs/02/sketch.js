@@ -1,46 +1,37 @@
-const MAX_GRADES = 720;
-const SLOW_FACTOR = 1;
-const FAST_FACTOR = 2;
+let maxCounter = 1;
+let isReversed = false;
+let availableHeight;
 
-let grades = 0;
-let isBacking = false;
+const getFillByHeight = i => i * (255 / availableHeight);
 
 function setup() {
   createDefaultCanvas();
-  frameRate(60);
+  frameRate(30);
+  availableHeight = getAvailableHeight();
 }
 
 function draw() {
-  background(127 + random(-1, 1));
   noStroke();
-  for (let i = 0; i < height; i += 20) {
-    // fill(155, 226, 15 + Math.abs(grades));
-    fill(random(10, 255), random(127, 226), 115);
-
-    rect(0, i + random(-2, 2), width + grades, 10);
-    fill(255 - random(-3, 3));
-    rect(i, -grades, 10, height + grades);
-    rotate(grades / 180000);
+  background(255 - maxCounter / 100);
+  const rand = random(-5, 5);
+  for (let i = 0; i < maxCounter; i += 1) {
+    fill(126, 102, 255 - getFillByHeight(i), i * 5 - maxCounter + rand);
+    rect(mouseX + i - 15 - rand, mouseY + i - 15 - rand, 15 + i + rand, 15 + i + rand, i / 5);
+    rotate(i * 15);
   }
-  if (grades > 100 || grades < -100) {
-    if (isBacking) {
-      grades -= SLOW_FACTOR;
-    } else {
-      grades += SLOW_FACTOR;
-    }
-  } else if (isBacking) {
-    grades -= FAST_FACTOR;
+  if (isReversed) {
+    maxCounter -= 1;
   } else {
-    grades += FAST_FACTOR;
+    maxCounter += 1;
   }
-  if (grades > MAX_GRADES) {
-    isBacking = true;
-  }
-  if (grades < MAX_GRADES * -1) {
-    isBacking = false;
+  if (maxCounter > availableHeight) {
+    isReversed = true;
+  } else if (maxCounter < 0) {
+    isReversed = false;
   }
 }
 
 function windowResized() {
   defaultResizeAction();
+  availableHeight = getAvailableHeight();
 }
