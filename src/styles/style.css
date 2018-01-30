@@ -4,8 +4,84 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+canvas {
+  vertical-align: top;
+}
+
 .main-header {
   background: #ee6666;
   color: #fff;
   padding: calc((10vw + 10vh) / 7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.title {
+  margin: 0;
+}
+
+.menu {
+  background: #000;
+  color: #fff;
+  border: 0;
+  padding: 15px;
+  font-size: 13px;
+  font-weight: 700;
+  outline: 0;
+}
+
+.menu:hover {
+  text-decoration: line-through;
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #000;
+  padding: 10px 20px;
+  transform: scale(0);
+  transition: transform 0.3s;
+}
+
+.nav.active {
+  transform: scale(1);
+}
+
+.nav p {
+  color: #fff;
+}
+
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.nav li {
+  padding: 0;
+  margin: 0;
+  text-indent: 0;
+  width: 200px;
+}
+
+.nav a {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  transition: background 0.3s;
+}
+
+.nav .selected,
+.nav a:hover {
+  background: #ee6666;
 }

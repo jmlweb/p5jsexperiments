@@ -1,12 +1,24 @@
 function setup() {
-  createCanvas(600, 400);
+  createDefaultCanvas();
 }
 
 function draw() {
   if (mouseIsPressed) {
-    fill(0);
-  } else {
-    fill(255);
+    const style =
+      Math.random() >= 0.5
+        ? {
+          fill: getRandomValue(3),
+          size: 30 - getRandomValue(2),
+        }
+        : {
+          fill: 255 - getRandomValue(),
+          size: 80 - getRandomValue(3),
+        };
+    fill(style.fill);
+    ellipse(mouseX, mouseY, style.size, style.size);
   }
-  ellipse(mouseX, mouseY, 80, 80);
+}
+
+function windowResized() {
+  defaultResizeAction();
 }

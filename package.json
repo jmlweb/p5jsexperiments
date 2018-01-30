@@ -31,6 +31,6 @@
     "clean": "rimraf build",
     "build": "babel ./src --out-dir build --copy-files",
     "devel": "nodemon ./src/index.js --exec \"babel-node ./src/index.js\" --verbose",
-    "start": "node ./build/index.js"
+    "start": "yarn build && node ./build/index.js"
   }
 }

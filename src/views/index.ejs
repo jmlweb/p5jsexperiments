@@ -4,15 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Exercise <%= exercise.key %></title>
+  <title>Experiment <%= exercise.key %></title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <div class="main-header">
-    <h1>P5 Experiments</h1>
+    <h1 class="title">P5 Experiments</h1>
+    <button class="menu">MENU</button>
   </div>
+  <nav class="nav">
+    <p>Go to experiment...</p> 
+    <ul>
+      <% exercisesKeys.forEach(function(key) { %>
+      <li><a <% if (key === exercise.key) { %>class="selected"<% } %> href="../<%= key %>"><%= key %></a></li>
+      <% }); %>
+    </ul>
+  </nav>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+  <script src="../utils.js"></script>
   <script src="./sketch.js"></script>
 </body>
 </html>
