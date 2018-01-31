@@ -3,6 +3,7 @@ function setup() {
 }
 
 function draw() {
+  noStroke();
   if (mouseIsPressed) {
     const style =
       Math.random() >= 0.5
