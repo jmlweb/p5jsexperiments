@@ -53,6 +53,7 @@ class Walker {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  enableMenu();
   frameRate(60);
   walker = new Walker();
 }

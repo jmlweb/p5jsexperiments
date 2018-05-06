@@ -1,5 +1,8 @@
 function setup() {
   createDefaultCanvas();
+  textSize(32);
+  textAlign(CENTER);
+  text('draw something', width / 2, height / 2);
 }
 
 function draw() {
